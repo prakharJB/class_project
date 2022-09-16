@@ -1,0 +1,20 @@
+<div id="delModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Delete {{ type }}</h3>
+            </div>
+
+            <div class="modal-body">
+               <p> Are you sure to delete <b *ngIf="info">{{ info.name }}</b></p>
+            </div>
+
+            <div class="modal-footer">
+                <button (click)="delete(closebtn)" class="btn btn-success">Ok</button>
+                <button #closebtn data-dismiss="modal" class="btn btn-danger">Cancel</button>
+            </div>
+
+            
+        </div>
+    </div>
+</div>

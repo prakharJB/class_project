@@ -1,0 +1,31 @@
+<div class="container" style="min-height: 500px;">
+   <h2 style="text-align: center"> Login </h2>
+   <form [formGroup] = "submitForm">
+   <div class="row">
+      <div class="col-md-6 offset-md-3 my-4">
+         <div class="form-group">
+            <label>Username/Email</label>
+            <input type="text" [ngClass]="{'is-invalid' : checkForm && submitForm.controls['email'].errors}" formControlName="email" class="form-control" />
+         </div>
+
+         <div class="form-group">
+            <label>Password</label>
+            <input type="password" formControlName="password" [ngClass]="{'is-invalid' : checkForm && submitForm.controls['password'].errors}" class="form-control" />
+         </div>
+
+         <p class="text-danger text-center">{{errMsg}}</p>
+
+         <input type="submit" (click)="save()" class="btn btn-primary" />
+
+      </div>
+   </div>
+   </form>
+   
+   <div class="col-lg-3 col-md-6 col-sm-6 col-md-6 col-sm-6 mix new-arrivals">
+      <div *ngIf="check">
+
+         <app-homecontent  [product]="pro"></app-homecontent>
+      </div>
+   </div>
+   
+</div>

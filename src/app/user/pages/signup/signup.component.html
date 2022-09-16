@@ -1,0 +1,91 @@
+<div class="container">
+  <form [formGroup] = "userData">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 my-4">
+                <div class= "card">
+                    <div class="card-header">
+                        <h4>Ragistration</h4>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="form-group">
+                          <label> Full Name</label>
+                          <input [ngClass]="{'is-invalid' : checkForm && userData.controls['name'].errors}" type="text" formControlName="name" class="form-control" />
+                          <div *ngIf=" checkForm && userData.controls['name'].errors" class="text-danger" >
+                            <div *ngIf="userData.controls['name'].errors['required']">Please Insert Name</div>
+                            <div *ngIf="userData.controls['name'].errors['nameErr']">Please Insert Alpabatical</div>
+                            <div *ngIf="userData.controls['name'].errors['uppErr']">First letter should be Capital</div>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label> Email</label>
+                          <input type="text" [ngClass]="{'is-invalid' : checkForm && userData.controls['email'].errors}" formControlName="email" class="form-control" />
+                          <div *ngIf="checkForm && userData.controls['email'].errors" class="text-danger">
+                            <div *ngIf="userData.controls['email'].errors['required'] ">Please Insert Email Id</div>
+                            <div *ngIf="userData.controls['email'].errors['email']" >Please Insert Correct Email Id</div>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label> Password</label>
+                          <input [ngClass]="{'is-invalid' : checkForm && userData.controls['password'].errors}" type="password" formControlName="password" class="form-control" />
+                          <div *ngIf="checkForm && userData.controls['password'].errors" class="text-danger">
+                            <div *ngIf="userData.controls['password'].errors['required']">Please Insert Password</div>
+                            <div *ngIf="userData.controls['password'].errors['passErr']">Password should be Strong</div>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label> Re-password</label>
+                          <input [ngClass]="{'is-invalid' : checkForm && userData.controls['re_password'].errors}" type="password" formControlName="re_password" class="form-control" />
+                          <div *ngIf="checkForm && userData.controls['re_password'].errors" class="text-danger">
+                            <div *ngIf="userData.controls['re_password'].errors['required']">Please Insert Re-password</div>
+                            <div *ngIf="userData.controls['re_password'].errors['rePassErr']">Please Insert Match Password</div>
+                          </div>
+                        </div>
+
+                        <div class="form-group">
+                          <label> Gender</label>
+                          <br />
+                          Male<input type="radio" formControlName="gender" value="male" [ngClass]="{'is-invalid' : checkForm && userData.controls['gender'].errors}"/>
+                          Female<input type="radio" formControlName="gender" value="female" [ngClass]="{'is-invalid' : checkForm && userData.controls['gender'].errors}" />
+                          <div *ngIf="checkForm && userData.controls['gender'].errors" class="text-danger">Please Insert Gender</div>
+                        </div>
+
+                        <div class="form-group">
+                          <label> Address</label>
+                          <textarea [ngClass]="{'is-invalid' : checkForm && userData.controls['address'].errors}" class="form-control" formControlName="address"></textarea>
+                          <div *ngIf="checkForm && userData.controls['address'].errors" class="text-danger">Please Insert Address</div>
+                        </div>
+
+                        <div class="form-group">
+                          <label> City</label>
+                          <select class="form-control" formControlName="city" [ngClass]="{'is-invalid' : checkForm && userData.controls['city'].errors}">
+                            <option value="">Select</option>
+                            <option value="indore">Indore</option>
+                            <option value="pune">Pune</option>
+                            <option value="mumbai">Mumbai</option>
+                          </select> 
+                          <div *ngIf="checkForm && userData.controls['city'].errors" class="text-danger">Please Select City</div> 
+                        </div>
+
+                        <div class="form-group">
+                          <label>Contact</label>
+                          <input type="text" [ngClass]="{'is-invalid' : checkForm && userData.controls['contact'].errors}" formControlName="contact" class="form-control" />
+                          <div *ngIf="checkForm && userData.controls['contact'].errors" class="text-danger">
+                            <div *ngIf="userData.controls['contact'].errors['required']">Please Insert Number</div>
+                            <div *ngIf="userData.controls['contact'].errors['numErr']">Numbers should be Numerical</div>
+                            <div *ngIf="userData.controls['contact'].errors['lengthErr']">Numbers should be 10 Digit</div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <input type="submit" (click)="save()" class="btn btn-primary col-sm" value="signup" /> 
+                    </div>
+                </div>
+        </div>
+    </div>
+  </form>  
+</div>

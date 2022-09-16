@@ -1,0 +1,43 @@
+<div class="conatiner" style="min-height: 500px;" >
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h3 class="text-center my-4">Your Profile</h3>
+            <table class="table table-hover table-bordered table-striped table-dark">
+                <tr>
+                    <td>Full Name</td>
+                    <td>{{ userInfo.name }}</td>
+                </tr>
+
+                <tr>
+                    <td>Email</td>
+                    <td>{{ userInfo.email }}</td>
+                </tr>
+
+                <tr>
+                    <td>Address</td>
+                    <td>{{ userInfo.address }}</td>
+                </tr>
+
+                <tr>
+                    <td>City</td>
+                    <td>{{ userInfo.city }}</td>
+                </tr>
+
+                <tr>
+                    <td>Gender</td>
+                    <td>{{ userInfo.gender }}</td>
+                </tr>
+
+                <tr>
+                    <td>Contact</td>
+                    <td>{{ userInfo.contact }}</td>
+                </tr>
+            </table>
+            <a routerLink="/my-profile/update" class="btn btn-info" >Update Profile</a>
+        </div>
+    </div>
+</div>
+
+
+
+

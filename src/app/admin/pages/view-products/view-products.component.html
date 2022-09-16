@@ -1,0 +1,35 @@
+<div class="conatiner mt-4">
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <h2 class="text-center my-4">View Products</h2>
+            <table *ngIf="allPro.length != 0" class="table table-dark table-striped table-hover table-bordered">
+                <tr>
+                    <th>S.No</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Discount</th>
+                    <th>Discounted price</th>
+                    <th>Image</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <tr *ngFor="let x of allPro; let n = index">
+                    <td>{{n+1}}.</td>
+                    <td>{{x.name}}</td>
+                    <td>{{x.category}}</td>
+                    <td>{{x.price | currency : '&#8377;'}}</td>
+                    <td>{{x.discount}}%</td>
+                    <td>{{x.price | discount : x.discount | currency : '&#8377;'}}</td>
+                    <td><img src="{{x.image}}" height="80px" width="80px" /></td>
+                    <td><button class="btn btn-info btn-sm">Edit</button></td>
+                    <td><button (click)="askDelete(x)" data-toggle="modal" data-target="#delModal" class="btn btn-danger btn-sm">Delete</button></td>
+                </tr>
+            </table>
+            <div *ngIf="allPro.length == 0" class="alert alert-info">Data Not Found</div>
+        </div>
+    </div>
+</div>
+
+<app-delete-modal [type]="type" [info]="pro" (deleteEvent)="delete($event)"></app-delete-modal>
+

@@ -1,0 +1,26 @@
+<div class="conatiner mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h2 class="text-center my-4">List of Category</h2>
+            <table *ngIf="allCat.length != 0" class="table table-dark table-striped table-hover table-bordered">
+                <tr>
+                    <th>S.No</th>
+                    <th>Name</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <tr *ngFor="let x of allCat; let n = index">
+                    <td>{{n+1}}</td>
+                    <td>{{x.name}}</td>
+                    <td><a routerLink="/admin/categories/edit/{{x._id}}" class="btn btn-info btn-sm">Edit</a></td>
+                    <td><button (click)="askDelete(x)" data-toggle="modal" data-target="#delModal" class="btn btn-danger btn-sm">Delete</button></td>
+                </tr>
+            </table>
+            <div *ngIf="allCat.length == 0" class="alert alert-info">No Data Found</div>
+        </div>
+    </div>
+</div>
+
+
+
+<app-delete-modal [type]="type" [info]="cate" (deleteEvent)="delete($event)"></app-delete-modal>
